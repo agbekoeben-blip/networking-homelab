@@ -47,7 +47,34 @@ The network topology will be added after the initial network design is completed
 
 ## IP Addressing
 
-The IP addressing plan will be documented after the network requirements have been analyzed.
+## IP Addressing
+
+The network uses the private IPv4 network `192.168.10.0/24`.
+
+- Subnet Mask: `255.255.255.0`
+- Network Address: `192.168.10.0`
+- Broadcast Address: `192.168.10.255`
+- Usable Host Range: `192.168.10.1 - 192.168.10.254`
+- Default Gateway: `192.168.10.1`
+
+### IP Addressing Table
+
+| Device | IP Address | Subnet Mask | Default Gateway |
+|---|---|---|---|
+| Router | 192.168.10.1 | 255.255.255.0 | N/A |
+| Admin-PC1 | 192.168.10.10 | 255.255.255.0 | 192.168.10.1 |
+| Admin-PC2 | 192.168.10.11 | 255.255.255.0 | 192.168.10.1 |
+| Admin-PC3 | 192.168.10.12 | 255.255.255.0 | 192.168.10.1 |
+| Admin-PC4 | 192.168.10.13 | 255.255.255.0 | 192.168.10.1 |
+| Admin-PC5 | 192.168.10.14 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC1 | 192.168.10.20 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC2 | 192.168.10.21 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC3 | 192.168.10.22 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC4 | 192.168.10.23 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC5 | 192.168.10.24 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC6 | 192.168.10.25 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC7 | 192.168.10.26 | 255.255.255.0 | 192.168.10.1 |
+| Sales-PC8 | 192.168.10.27 | 255.255.255.0 | 192.168.10.1 |
 
 ## Configuration
 
