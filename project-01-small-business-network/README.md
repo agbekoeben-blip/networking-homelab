@@ -82,8 +82,28 @@ Configuration steps will be documented as devices are configured.
 
 ## Testing and Troubleshooting
 
-Connectivity tests, problems encountered, and troubleshooting steps will be documented throughout the project.
+After configuring the router and assigning static IPv4 addresses to the PCs, connectivity was verified using ICMP ping tests.
+
+The following tests were successfully completed:
+
+- Admin-PC3 to the default gateway (`192.168.10.1`)
+- Admin-PC5 to Sales-PC1 (`192.168.10.20`)
+- Sales-PC8 to Admin-PC1 (`192.168.10.10`)
+
+All tests returned four successful replies with 0% packet loss.
+
+These tests confirmed that devices within the `192.168.10.0/24` network could communicate successfully through the switch and that the PCs could reach the router's LAN interface.
 
 ## What I Learned
 
-This section will be updated as I progress through the project.
+During the initial network configuration, I learned how to:
+
+- Design a basic LAN using a router, switch, and end devices.
+- Connect different Ethernet devices using straight-through cables.
+- Configure a router interface with an IPv4 address.
+- Enable a Cisco router interface using the `no shutdown` command.
+- Verify router interfaces using `show ip interface brief`.
+- Assign static IPv4 addresses, subnet masks, and default gateways to end devices.
+- Test connectivity using the `ping` command.
+- Understand that devices on the same subnet communicate through the switch without requiring the router.
+- Understand that a default gateway is used when a host needs to communicate with another network.
