@@ -52,8 +52,6 @@ one Cisco 2960 switch, five Administration PCs, and eight Sales PCs.
 
 ## IP Addressing
 
-## IP Addressing
-
 The network uses the private IPv4 network `192.168.10.0/24`.
 
 - Subnet Mask: `255.255.255.0`
@@ -80,6 +78,36 @@ The network uses the private IPv4 network `192.168.10.0/24`.
 | Sales-PC6 | 192.168.10.25 | 255.255.255.0 | 192.168.10.1 |
 | Sales-PC7 | 192.168.10.26 | 255.255.255.0 | 192.168.10.1 |
 | Sales-PC8 | 192.168.10.27 | 255.255.255.0 | 192.168.10.1 |
+
+## DHCP Configuration
+
+After verifying the network using static IPv4 addressing, the network was upgraded to use DHCP for automatic client configuration.
+
+Router0 was configured as the DHCP server for the `192.168.10.0/24` network.
+
+The addresses from `192.168.10.1` through `192.168.10.49` were reserved for network infrastructure and other devices that may require static addressing.
+
+DHCP clients receive addresses beginning at `192.168.10.50`.
+
+### DHCP Configuration
+
+The following Cisco IOS configuration was used:
+
+    ip dhcp excluded-address 192.168.10.1 192.168.10.49
+
+    ip dhcp pool BRIGHTTECH
+     network 192.168.10.0 255.255.255.0
+     default-router 192.168.10.1
+
+After changing the PCs from static addressing to DHCP, all 13 computers successfully received IPv4 configurations automatically.
+
+The DHCP leases were verified using:
+
+    show ip dhcp binding
+
+The router assigned addresses from `192.168.10.50` through `192.168.10.62` to the 13 client computers.
+
+![DHCP Bindings](screenshots/dhcp-bindings.png)
 
 ## Configuration
 
@@ -112,3 +140,10 @@ During the initial network configuration, I learned how to:
 - Test connectivity using the `ping` command.
 - Understand that devices on the same subnet communicate through the switch without requiring the router.
 - Understand that a default gateway is used when a host needs to communicate with another network.
+- Understand the purpose of DHCP in reducing manual IP configuration.
+- Configure a Cisco router to provide DHCP services.
+- Create a DHCP address pool.
+- Exclude addresses from a DHCP pool for infrastructure devices.
+- Configure DHCP clients.
+- Verify DHCP leases using `show ip dhcp binding`.
+- Understand the DHCP DORA process: Discover, Offer, Request, and Acknowledge.
