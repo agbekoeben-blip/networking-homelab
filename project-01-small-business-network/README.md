@@ -43,7 +43,12 @@ Further network requirements and configurations will be added as the project pro
 
 ## Network Topology
 
-The network topology will be added after the initial network design is completed.
+## Network Topology
+
+The initial BrightTech Solutions network consists of one Cisco 1941 router,
+one Cisco 2960 switch, five Administration PCs, and eight Sales PCs.
+
+![BrightTech Initial Network Topology](screenshots/initial-working-topology.png)
 
 ## IP Addressing
 
