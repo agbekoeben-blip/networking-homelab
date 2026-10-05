@@ -127,6 +127,40 @@ All tests returned four successful replies with 0% packet loss.
 
 These tests confirmed that devices within the `192.168.10.0/24` network could communicate successfully through the switch and that the PCs could reach the router's LAN interface.
 
+## Switch Management
+
+After configuring DHCP, the Cisco 2960 switch was configured with a management IP address.
+
+The switch was assigned:
+
+- Hostname: `SW1`
+- Management Interface: `VLAN 1`
+- Management IP Address: `192.168.10.2`
+- Subnet Mask: `255.255.255.0`
+- Default Gateway: `192.168.10.1`
+
+The following Cisco IOS configuration was used:
+
+    hostname SW1
+
+    interface vlan 1
+     ip address 192.168.10.2 255.255.255.0
+     no shutdown
+
+    ip default-gateway 192.168.10.1
+
+The management interface was verified using:
+
+    show ip interface brief
+
+The output confirmed that VLAN 1 was `up/up` with the IP address `192.168.10.2`.
+
+Connectivity to the switch management interface was successfully tested from an end device using:
+
+    ping 192.168.10.2
+
+The switch does not require an IP address to perform normal Layer 2 frame forwarding. The management IP address allows administrators to communicate with and manage the switch over the IP network.
+
 ## What I Learned
 
 During the initial network configuration, I learned how to:
@@ -147,3 +181,11 @@ During the initial network configuration, I learned how to:
 - Configure DHCP clients.
 - Verify DHCP leases using `show ip dhcp binding`.
 - Understand the DHCP DORA process: Discover, Offer, Request, and Acknowledge.
+- - Understand why a Layer 2 switch can forward traffic without an IP address.
+- Understand the difference between switching traffic and management traffic.
+- Configure a hostname on a Cisco switch.
+- Configure a Switch Virtual Interface (SVI).
+- Assign a management IPv4 address to a Layer 2 switch.
+- Configure a switch default gateway.
+- Verify switch interfaces using `show ip interface brief`.
+- Test connectivity to a switch management interface using ping.
